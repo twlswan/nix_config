@@ -27,7 +27,11 @@ in
     bluetooth.enable = true;
   };
   
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    algorithm = lz4;
+    memoryPercent = 40; 
+  };
 
   # KDE
   services.displayManager.sddm.enable = true;
@@ -249,7 +253,7 @@ in
   boot.binfmt.registrations.wine = {
     recognitionType = "magic";
     magicOrExtension = "MZ";
-    # Nix automatically interpolates the path to the bin folder
+    # Nix automatically interpolates the path to the bin folder (since it should be nix/store/whatever/bin)
     interpreter = "${myWine}/bin/wine";
   };
 
