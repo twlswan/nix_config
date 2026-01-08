@@ -204,7 +204,7 @@
   };
   
   #Wine
-  let mywine = wineWowPackages.waylandFull;
+  let myWine = wineWowPackages.waylandFull;
 
   # System Packages
   environment.systemPackages = with pkgs; [
@@ -218,7 +218,7 @@
     ntfs3g
 
     # Wine 
-    mywine
+    myWine
     winetricks
     lutris
 
