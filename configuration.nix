@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
+let
+  myWine = pkgs.wineWowPackages.waylandFull;
+in
 {
   imports =
     [
@@ -202,9 +205,6 @@
     };
     virt-manager.enable = true;
   };
-  
-  #Wine
-  let myWine = wineWowPackages.waylandFull;
 
   # System Packages
   environment.systemPackages = with pkgs; [
