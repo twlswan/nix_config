@@ -26,6 +26,8 @@ in
     graphics.enable32Bit = true;
     bluetooth.enable = true;
   };
+  
+  zramSwap.enable = true;
 
   # KDE
   services.displayManager.sddm.enable = true;
