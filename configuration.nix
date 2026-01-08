@@ -191,6 +191,7 @@
   virtualisation.docker.enable = true;
 
 
+
   # Programs (Modules)
   programs = {
     firefox.enable = true;
@@ -202,6 +203,8 @@
     virt-manager.enable = true;
   };
   
+  #Wine
+  let mywine = wineWowPackages.waylandFull;
 
   # System Packages
   environment.systemPackages = with pkgs; [
@@ -215,7 +218,7 @@
     ntfs3g
 
     # Wine 
-    wineWowPackages.waylandFull
+    mywine
     winetricks
     lutris
 
@@ -240,6 +243,13 @@
 
     godot
   ];
+
+  boot.binfmt.registrations.wine = {
+    recognitionType = "magic";
+    magicOrExtension = "MZ";
+    # Nix automatically interpolates the path to the bin folder
+    interpreter = "${myWine}/bin/wine";
+  };
 
   nix.settings.experimental-features = [ "nix-command" ];
   nixpkgs.config.allowUnfree = true;
