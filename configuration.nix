@@ -29,8 +29,8 @@ in
   
   zramSwap = {
     enable = true;
-    algorithm = lz4;
-    memoryPercent = 40; 
+    algorithm = "lz4";
+    memoryPercent = 100; 
   };
 
   # KDE
